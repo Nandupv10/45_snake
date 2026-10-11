@@ -1,85 +1,46 @@
 # Snake Game
 
-This project is a terminal-based Snake game using **Pygame**. It introduces students to interactive game design using object-oriented principles and real-time graphical rendering.
+A grid-based Snake game built using Python and Pygame. This project was improved using AI-assisted debugging and code review.
 
----
+## Features
 
-## What’s Provided
+- Grid-based snake movement using keyboard controls.
+- Food spawning, snake growth, and score tracking.
+- Prevents direct 180-degree direction reversal.
+- Handles wall collisions and self-collisions.
+- Displays a Game Over screen with the final score.
+- Provides a replay menu with Easy, Medium, Hard, and Exit options.
+- Plays sound effects when food is eaten and when the game ends.
+- Handles unavailable audio hardware gracefully.
 
-A partially working version of a snake game with:
+## Requirements
 
-- Grid-based snake movement controlled by the player
-- Food spawning and snake growth
-- Score display
+- Python 3.10 or later
+- Pygame (see `requirements.txt`)
 
-You are expected to **analyze**, **interact with an AI assistant**, and **complete/fix** the game to make it fully functional.
+## Setup and Run
 
-### **Use an LLM (e.g. ChatGPT or Claude) as your debugging and pair-programming partner for this lab.**
-
----
-
-## Getting Started
-
-### Setup
-
-1. Clone the repo or download the project folder.
-2. Make sure you have Python 3.10+ installed.
-3. Install dependencies:
+Install dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-4. Run the game:
+Run the game:
 
 ```bash
 python main.py
 ```
 
----
+## Controls
 
+- Arrow keys or WASD: Move the snake.
+- After Game Over: Select a replay difficulty or exit, as supported by the game controls.
 
-## Tasks to Complete
+## Project Structure
 
-Each task must be completed using an iterative process involving LLM suggestions and your critical code review.
-
-### Task 1: Refine Collision Detection
-
-> The snake can die instantly and unfairly if you tap the opposite direction key while moving (e.g. pressing Left while already moving Right), because the new head moves straight into the segment behind it. Investigate and enhance collision accuracy so direction changes and self/wall collisions behave fairly.
-
-
-### Task 2: Implement Game Over Condition
-
-> Add a screen that displays the final score once the snake hits a wall or itself, then gracefully waits for input instead of just printing to the console.
-
-
-### Task 3: Add Replay Option
-
-> After Game Over, allow the user to play again by choosing a difficulty (Easy, Medium, or Hard speed), or exit.
-
-
-
-### Task 4: Add Sound Feedback
-
-> Add basic sound effects for eating food and for the game-over moment.
-
-
----
-
-## Expected Behavior
-
-- Smooth, grid-based snake movement using arrow keys or `WASD`
-- Snake grows by one segment each time it eats food
-- Food never spawns on top of the snake
-- Score updates as food is eaten
-- Game ends (and optionally restarts) when the snake hits a wall or itself
-
----
-
-## Folder Structure
-
-```
-snake-main/
+```text
+45_snake/
 ├── main.py
 ├── requirements.txt
 ├── game/
@@ -89,12 +50,12 @@ snake-main/
 └── README.md
 ```
 
----
+## Submission Evidence
 
-## Submission Checklist
+- `before.mp4`: Gameplay before the changes.
+- `after.mp4`: Gameplay after the changes.
+- `Chat_History.pdf` and `Chat_History.json`: AI-assisted development conversation records.
 
-Submission is only the following three things:
+## Testing
 
-- [] A 10-second video of gameplay **before** your changes, showing the bug/broken behavior
-- [] A 10-second video of gameplay **after** your changes, showing the bug fixed and the new features working
-- [] The Chat/LLM used page link, with the complete chat history
+The updated code was checked for Python compilation and basic direction-reversal and replay-reset behavior. Full gameplay should also be tested manually.
