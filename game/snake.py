@@ -9,9 +9,11 @@ class Snake:
         self.grow_pending = False
 
     def set_direction(self, dx, dy):
-        # NOTE: does not currently guard against reversing directly
-        # into the segment behind the head.
-        self.direction = (dx, dy)
+        next_direction = (dx, dy)
+        if self.direction != (0, 0):
+            if next_direction[0] == -self.direction[0] and next_direction[1] == -self.direction[1]:
+                return
+        self.direction = next_direction
 
     def move(self):
         head_x, head_y = self.body[0]
@@ -38,8 +40,14 @@ class Snake:
         ]
 
     def collides_with_self(self):
+        if len(self.body) < 3:
+            return False
+
         head = self.body[0]
-        return head in self.body[1:]
+        if self.grow_pending:
+            return head in self.body[1:]
+
+        return head in self.body[1:-1]
 
     def collides_with_wall(self, grid_width, grid_height):
         x, y = self.body[0]
